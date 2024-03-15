@@ -1,15 +1,43 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Student Grade Calculator!");
+
+        System.out.print("Enter the student's name: ");
+        String studentName = scanner.nextLine();
+
+        System.out.print("Enter the number of subjects: ");
+        int numSubjects = scanner.nextInt();
+
+        double totalMarks = 0;
+
+        for (int i = 1; i <= numSubjects; i++) {
+            System.out.print("Enter the marks for subject " + i + ": ");
+            double marks = scanner.nextDouble();
+            totalMarks += marks;
         }
-    }
+
+        double average = totalMarks / numSubjects;
+
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Total Marks: " + totalMarks);
+        System.out.println("Average Grade: " + average);
+
+        if (average >= 90) {
+            System.out.println("Grade: A");
+        } else if (average >= 80) {
+            System.out.println("Grade: B");
+        } else if (average >= 70) {
+            System.out.println("Grade: C");
+        } else if (average >= 60) {
+            System.out.println("Grade: D");
+        } else {
+            System.out.println("Grade: F");
+        }
+
+        scanner.close();
+    }
 }
